@@ -29,11 +29,34 @@ namespace WebAPI_Demo.Controllers
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
+                Id = rng.Next(1, 100),
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<string> GetId(int id)
+        {
+            return "valor: " + id.ToString();
+        }
+
+        [HttpPost("{id}")]
+        public void Post([FromBody] string value)
+        {
+        }
+
+        [HttpGet("pessoas")]
+        public ActionResult<IEnumerable<Pessoa>> GetPessoas()
+        {
+            return new[]
+            {
+                new Pessoa {Nome = "Ana"},
+                new Pessoa {Nome = "Paula"},
+                new Pessoa {Nome = "Bruna"}
+            };
         }
     }
 }
