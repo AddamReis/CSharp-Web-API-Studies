@@ -2,7 +2,6 @@ C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\apps
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.exe
-C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csprojAssemblyReference.cache
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.AssemblyInfoInputs.cache
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.AssemblyInfo.cs
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.RazorTargetAssemblyInfo.cache
@@ -28,3 +27,17 @@ C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Syst
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csproj.CopyComplete
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.deps.json
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.runtimeconfig.json
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.runtimeconfig.dev.json
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.pdb
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csproj.CoreCompileInputs.cache
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.pdb
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.genruntimeconfig.cache
