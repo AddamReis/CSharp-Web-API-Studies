@@ -30,7 +30,10 @@ namespace WebAPI_Catalogo
             services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; //vai ignorar a referência ciclica na serialização na resposta json no método action
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
