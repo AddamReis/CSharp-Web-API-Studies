@@ -41,3 +41,4 @@ C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebA
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.dll
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.pdb
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.genruntimeconfig.cache
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csprojAssemblyReference.cache
