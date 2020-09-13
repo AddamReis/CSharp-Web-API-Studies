@@ -25,10 +25,10 @@ namespace WebAPI_Catalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Produto>> Get()
         {
-           return _context.Produtos.AsNoTracking().ToList();
+            return _context.Produtos.AsNoTracking().ToList();
         }
 
-        [HttpGet("{id}", Name="ObterProduto")]
+        [HttpGet("{id}", Name = "ObterProduto")]
         public ActionResult<Produto> Get(int id)
         {
             var produto = _context.Produtos.AsNoTracking().FirstOrDefault(p => p.ProdutoId == id);
@@ -49,6 +49,31 @@ namespace WebAPI_Catalogo.Controllers
 
             return new CreatedAtRouteResult("ObterProduto", //informo o nome da rota no qual o produto estará disponível (definido no GET Id)
                 new { id = produto.ProdutoId }, produto);
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, [FromBody] Produto produto)
+        {
+            if (id != produto.ProdutoId)
+                return BadRequest();
+
+            _context.Entry(produto).State = EntityState.Modified; //altera estado da entidade para modified e persiste as informações no banco
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<Produto> Delete(int id)
+        {
+            var produto = _context.Produtos.AsNoTracking().FirstOrDefault(p => p.ProdutoId == id); //firstOrDefault sempre vai no banco de dados
+            //var produto = _context.Produtos.Find(id); //Find primeiro procura o objeto na memória, se não encontrar então vai no banco, mas o find só pode ser utilizado se o parametro passardo for o ID (PK)
+
+            if (id != produto.ProdutoId)
+                return BadRequest();
+
+            _context.Produtos.Remove(produto);
+            _context.SaveChanges();
+            return produto;
         }
     }
 }
