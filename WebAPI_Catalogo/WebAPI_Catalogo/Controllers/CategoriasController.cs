@@ -24,9 +24,9 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Categoria>> Get()
+        public async Task<ActionResult<IEnumerable<Categoria>>> GetAsync()
         {
-            return _context.Categorias.AsNoTracking().ToList();
+            return await _context.Categorias.AsNoTracking().ToListAsync();
         }
 
         [HttpGet("produtos")] //adiciona ao endpoint para não dar conflito pois o controller já possui um get sem parametros
@@ -40,9 +40,9 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")] //incluído restrição para que a api só aceite valores inteiros e meior que zero
-        public ActionResult<Categoria> Get(int id)
+        public async Task<ActionResult<Categoria>> GetAsync(int id)
         {
-            var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(p => p.CategoriaId == id);
+            var categoria = await _context.Categorias.AsNoTracking().FirstOrDefaultAsync(p => p.CategoriaId == id);
             if (categoria == null)
                 return NotFound();
 
