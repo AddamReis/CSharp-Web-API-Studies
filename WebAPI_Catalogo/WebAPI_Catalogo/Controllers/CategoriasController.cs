@@ -10,6 +10,8 @@ using WebAPI_Catalogo.Models;
 
 namespace WebAPI_Catalogo.Controllers
 {
+    //Utilizar restrições de rotas somente para destinguir entre duas rotas parecidas
+    //não utilizar este recurso para validar entrada do usuário na URL
     [Route("api/[Controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
@@ -28,12 +30,16 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet("produtos")] //adiciona ao endpoint para não dar conflito pois o controller já possui um get sem parametros
+        //[HttpGet("/produtos")] --host://produtos  //É possível definir mais de 1 endpoint para o mesmo método
+
+        //[HttpGet("{valor:alpha:length(5)}")] //incluindo restrição para api aceitar somente alpha numéricos com tamanho de 5
+
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
             return _context.Categorias.Include(x => x.Produtos).ToList(); //além de retornar as categorias, agora retorna os respectivos produtos associados
         }
 
-        [HttpGet("{id}", Name = "ObterCategoria")]
+        [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")] //incluído restrição para que a api só aceite valores inteiros e meior que zero
         public ActionResult<Categoria> Get(int id)
         {
             var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(p => p.CategoriaId == id);
