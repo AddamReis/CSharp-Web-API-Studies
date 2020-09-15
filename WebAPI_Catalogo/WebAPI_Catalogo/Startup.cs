@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebAPI_Catalogo.Context;
+using WebAPI_Catalogo.Services;
 
 namespace WebAPI_Catalogo
 {
@@ -29,6 +30,8 @@ namespace WebAPI_Catalogo
         {
             services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IMeuServico, MeuServico>(); //AddTransient é criado toda vez que for solicitado, AddScoped é criado uma única vez
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {

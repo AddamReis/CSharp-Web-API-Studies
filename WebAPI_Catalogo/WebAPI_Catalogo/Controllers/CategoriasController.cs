@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebAPI_Catalogo.Context;
 using WebAPI_Catalogo.Models;
+using WebAPI_Catalogo.Services;
 
 namespace WebAPI_Catalogo.Controllers
 {
@@ -28,6 +29,12 @@ namespace WebAPI_Catalogo.Controllers
         public async Task<ActionResult<IEnumerable<Categoria>>> GetAsync()
         {
             return await _context.Categorias.AsNoTracking().ToListAsync();
+        }
+
+        [HttpGet("saudacao/{nome}")]
+        public ActionResult<string> GetSaudacao([FromServices] IMeuServico meuservico, string nome) //Injeção foi aplicada diretamente ao Método Action
+        {
+            return meuservico.Saudacao(nome);
         }
 
         [HttpGet("produtos")] //adiciona ao endpoint para não dar conflito pois o controller já possui um get sem parametros
