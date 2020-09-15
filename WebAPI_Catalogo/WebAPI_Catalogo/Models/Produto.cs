@@ -9,13 +9,13 @@ using WebAPI_Catalogo.Validations;
 namespace WebAPI_Catalogo.Models
 {
     [Table("Produtos")]
-    public class Produto
+    public class Produto : IValidatableObject
     {
         [Key]
         public int ProdutoId { get; set; }
         //[Required]
         //[MaxLength(100)]
-        [PrimeiraLetraMaiuscula]
+        //[PrimeiraLetraMaiuscula]
         public string Nome { get; set; }
         [Required]
         [MaxLength(500)]
@@ -30,5 +30,21 @@ namespace WebAPI_Catalogo.Models
 
         public Categoria Categoria { get; set; }
         public int CategoriaId { get; set; }
+
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            if (!string.IsNullOrEmpty(this.Nome))
+            {
+                var primeiraLetra = this.Nome[0].ToString();
+                if (primeiraLetra != primeiraLetra.ToUpper())
+                {
+                    yield return new ValidationResult("A primeira letra do nome do produto deve ser maiúscula", new[] { nameof(this.Nome) });
+                }
+            }
+            if(this.Estoque <= 0)
+            {
+                yield return new ValidationResult("O estoque deve ser maior que zero", new[] { nameof(this.Estoque) });
+            }
+        }
     }
 }
