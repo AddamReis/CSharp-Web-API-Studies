@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -40,8 +41,10 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")] //incluído restrição para que a api só aceite valores inteiros e meior que zero
-        public async Task<ActionResult<Categoria>> GetAsync(int id)
+        public async Task<ActionResult<Categoria>> GetAsync(/*[FromQuery]*/ int id/*, [BindRequired] string nome*/)
         {
+            //Para o caso do FromQuery, os valores devem ser passados na url = /1?id=5 
+            //var nomeProd = nome; //BindRequired faz com que seja obrigatório passar o valor na url = /1?nome=jonas
             var categoria = await _context.Categorias.AsNoTracking().FirstOrDefaultAsync(p => p.CategoriaId == id);
             if (categoria == null)
                 return NotFound();
