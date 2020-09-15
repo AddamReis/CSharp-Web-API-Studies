@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAPI_Catalogo.Validations;
 
 namespace WebAPI_Catalogo.Models
 {
@@ -12,8 +13,9 @@ namespace WebAPI_Catalogo.Models
     {
         [Key]
         public int ProdutoId { get; set; }
-        [Required]
-        [MaxLength(100)]
+        //[Required]
+        //[MaxLength(100)]
+        [PrimeiraLetraMaiuscula]
         public string Nome { get; set; }
         [Required]
         [MaxLength(500)]
