@@ -31,6 +31,8 @@ namespace WebAPI_Catalogo.Controllers
         [HttpGet("{id}", Name = "ObterProduto")]
         public async Task<ActionResult<Produto>> GetAsync(int id)
         {
+            //throw new Exception("Exception forçada"); 
+
             var produto = await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.ProdutoId == id);
             if (produto == null)
                 return NotFound();

@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebAPI_Catalogo.Context;
+using WebAPI_Catalogo.Extensions;
 using WebAPI_Catalogo.Filters;
 using WebAPI_Catalogo.Services;
 
@@ -49,6 +50,8 @@ namespace WebAPI_Catalogo
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.ConfigureExceptionHandler();
 
             app.UseHttpsRedirection();
 
