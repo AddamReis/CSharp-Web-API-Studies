@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,10 +20,20 @@ namespace WebAPI_Catalogo.Controllers
     public class CategoriasController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public CategoriasController(AppDbContext contexto)
+        public CategoriasController(AppDbContext contexto, IConfiguration config)
         {
             _context = contexto;
+            _configuration = config;
+        }
+
+        [HttpGet("autor")]
+        public string GetAutor()
+        {
+            var autor = _configuration["Autor"];
+            var conexao = _configuration["ConnectionStrings:DefaultConnection"];
+            return $"Autor : {autor} e Conexão : {conexao}";
         }
 
         [HttpGet]
