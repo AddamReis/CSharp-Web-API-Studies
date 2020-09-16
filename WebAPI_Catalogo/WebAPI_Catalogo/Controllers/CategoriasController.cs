@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAPI_Catalogo.Context;
+using WebAPI_Catalogo.Filters;
 using WebAPI_Catalogo.Models;
 using WebAPI_Catalogo.Services;
 
@@ -37,6 +38,7 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ApiLoggingFilter))] //irá aplicar o filtro no método abaixo
         public async Task<ActionResult<IEnumerable<Categoria>>> GetAsync()
         {
             return await _context.Categorias.AsNoTracking().ToListAsync();
