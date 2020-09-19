@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using WebAPI_Catalogo.Context;
 using WebAPI_Catalogo.Extensions;
 using WebAPI_Catalogo.Filters;
+using WebAPI_Catalogo.Logging;
 using WebAPI_Catalogo.Services;
 
 namespace WebAPI_Catalogo
@@ -44,12 +45,17 @@ namespace WebAPI_Catalogo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            loggerFactory.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
+            {
+                LogLevel = LogLevel.Information
+            })); ;
 
             app.ConfigureExceptionHandler();
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,11 +23,13 @@ namespace WebAPI_Catalogo.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly ILogger _logger;
 
-        public CategoriasController(AppDbContext contexto, IConfiguration config)
+        public CategoriasController(AppDbContext contexto, IConfiguration config, ILogger<CategoriasController> logger)
         {
             _context = contexto;
             _configuration = config;
+            _logger = logger;
         }
 
         [HttpGet("autor")]
@@ -57,6 +60,7 @@ namespace WebAPI_Catalogo.Controllers
 
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
+            _logger.LogInformation("======================GET api/categorias/produtos=======================");
             return _context.Categorias.Include(x => x.Produtos).ToList(); //além de retornar as categorias, agora retorna os respectivos produtos associados
         }
 
