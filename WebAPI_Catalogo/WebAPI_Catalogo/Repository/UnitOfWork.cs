@@ -1,4 +1,5 @@
-﻿using WebAPI_Catalogo.Context;
+﻿using System.Threading.Tasks;
+using WebAPI_Catalogo.Context;
 
 namespace WebAPI_Catalogo.Repository
 {
@@ -28,9 +29,9 @@ namespace WebAPI_Catalogo.Repository
             }
         }
 
-        public void Commit()
+        public async Task Commit()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public void Dispose()

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebAPI_Catalogo.Context;
 using WebAPI_Catalogo.Models;
 
@@ -10,9 +11,9 @@ namespace WebAPI_Catalogo.Repository
         public CategoriaRepository(AppDbContext contexto) : base(contexto)
         {
         }
-        public IEnumerable<Categoria> GetCategoriasProdutos()
+        public async Task<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
-            return Get().Include(x => x.Produtos);
+            return await Get().Include(x => x.Produtos).ToListAsync();
         }
     }
 }

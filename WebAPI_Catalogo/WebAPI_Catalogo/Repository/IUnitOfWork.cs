@@ -1,9 +1,11 @@
-﻿namespace WebAPI_Catalogo.Repository
+﻿using System.Threading.Tasks;
+
+namespace WebAPI_Catalogo.Repository
 {
     public interface IUnitOfWork
     {
         IProdutoRepository ProdutoRepository { get; }
         ICategoriaRepository CategoriaRepository { get; }
-        void Commit();
+        Task Commit();
     }
 }
