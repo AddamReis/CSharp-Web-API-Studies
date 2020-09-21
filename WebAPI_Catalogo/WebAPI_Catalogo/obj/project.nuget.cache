@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "7Xl9TmSMIeYZPnc4jJD7JAuyYIMutAjJKkYw7RsXT1Ei13IOOwrh5e3EM9aZHscuLt7lrM5j+Jsd1kwlEZADZg==",
+  "dgSpecHash": "+LTKFjHkgnAy6Xq/9dlP7daU9dwVr3+0Cq2TmgbMDpcZ1M8XwyUcX6OO6IR47DeXRiZ4LbHCn4Z538sMfymnOg==",
   "success": true,
   "projectFilePath": "C:\\Projects\\Web-API\\WebAPI_Catalogo\\WebAPI_Catalogo\\WebAPI_Catalogo.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Odinn\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
+    "C:\\Users\\Odinn\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
     "C:\\Users\\Odinn\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.8\\microsoft.aspnetcore.jsonpatch.3.1.8.nupkg.sha512",
     "C:\\Users\\Odinn\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.8\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.8.nupkg.sha512",
     "C:\\Users\\Odinn\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -33,7 +35,8 @@
     "C:\\Users\\Odinn\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
     "C:\\Users\\Odinn\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
     "C:\\Users\\Odinn\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
-    "C:\\Users\\Odinn\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+    "C:\\Users\\Odinn\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
+    "C:\\Users\\Odinn\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

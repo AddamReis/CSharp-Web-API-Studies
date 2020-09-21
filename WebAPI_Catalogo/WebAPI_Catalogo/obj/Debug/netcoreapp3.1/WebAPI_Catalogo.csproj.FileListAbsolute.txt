@@ -35,8 +35,6 @@ C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Syst
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.AssemblyInfoInputs.cache
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.AssemblyInfo.cs
-C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csproj.CoreCompileInputs.cache
-C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.RazorTargetAssemblyInfo.cache
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csproj.CopyComplete
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\staticwebassets\WebAPI_Catalogo.StaticWebAssets.Manifest.cache
@@ -44,3 +42,7 @@ C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\stat
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.dll
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.pdb
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.genruntimeconfig.cache
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csproj.CoreCompileInputs.cache
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.MvcApplicationPartsAssemblyInfo.cache
