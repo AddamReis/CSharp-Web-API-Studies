@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebAPI_Catalogo.Context;
+﻿using WebAPI_Catalogo.Context;
 
 namespace WebAPI_Catalogo.Repository
 {
@@ -20,14 +16,15 @@ namespace WebAPI_Catalogo.Repository
         {
             get
             {
-                return _produtoRep = _produtoRep ?? new ProdutoRepository(_context);
+                return _produtoRep ??= new ProdutoRepository(_context);
             }
         }
 
-        public ICategoriaRepository CategoriaRepository {
-        get
+        public ICategoriaRepository CategoriaRepository
+        {
+            get
             {
-                return _categoriaRep = _categoriaRep ?? new CategoriaRepository(_context);
+                return _categoriaRep ??= new CategoriaRepository(_context);
             }
         }
 
@@ -40,6 +37,5 @@ namespace WebAPI_Catalogo.Repository
         {
             _context.Dispose(); //libera recursos utilizados na injeção do context
         }
-
     }
 }

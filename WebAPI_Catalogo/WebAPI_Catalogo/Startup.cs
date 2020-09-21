@@ -47,10 +47,10 @@ namespace WebAPI_Catalogo
                 app.UseDeveloperExceptionPage();
             }
 
-            loggerFactory.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
-            {
-                LogLevel = LogLevel.Information
-            })); ;
+            //loggerFactory.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
+            //{
+            //    LogLevel = LogLevel.Information
+            //})); ;
 
             app.ConfigureExceptionHandler();
 

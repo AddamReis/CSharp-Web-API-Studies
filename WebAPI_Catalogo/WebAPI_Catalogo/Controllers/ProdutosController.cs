@@ -10,8 +10,8 @@ namespace WebAPI_Catalogo.Controllers
     [ApiController]
     public class ProdutosController : ControllerBase
     {
-        private readonly UnitOfWork _uof;
-        public ProdutosController(UnitOfWork contexto)
+        private readonly IUnitOfWork _uof;
+        public ProdutosController(IUnitOfWork contexto)
         {
             _uof = contexto;
         }
@@ -63,8 +63,8 @@ namespace WebAPI_Catalogo.Controllers
         {
             var produto = _uof.ProdutoRepository.GetById(p => p.ProdutoId == id);
 
-            if (id != produto.ProdutoId)
-                return BadRequest();
+            if (produto == null)
+                return NotFound();
 
             _uof.ProdutoRepository.Delete(produto);
             _uof.Commit();

@@ -5,7 +5,7 @@ using WebAPI_Catalogo.Models;
 
 namespace WebAPI_Catalogo.Repository
 {
-    public class ProdutoRepository : Repository<Produto>, IProdutoRepository //Herdando ds duas interfaces, tanto da genérica quanto da específica
+    public class ProdutoRepository : Repository<Produto>, IProdutoRepository //Herdando tanto do repositório genérico quanto da interface
     {
         public ProdutoRepository(AppDbContext context) : base(context)
         {
