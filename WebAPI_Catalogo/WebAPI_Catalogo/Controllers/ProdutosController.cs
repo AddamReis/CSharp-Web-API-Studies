@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebAPI_Catalogo.DTOs;
 using WebAPI_Catalogo.Models;
+using WebAPI_Catalogo.Pagination;
 using WebAPI_Catalogo.Repository;
 
 namespace WebAPI_Catalogo.Controllers
@@ -23,9 +24,11 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProdutoDTO>>> Get()
+        //public async Task<ActionResult<IEnumerable<ProdutoDTO>>> Get()
+        public ActionResult<IEnumerable<ProdutoDTO>> Get([FromQuery] ProdutosParameters produtosParameters) //?pageNumber=Value&pageSize=Value
         {
-            var produtos = await _uof.ProdutoRepository.Get().ToListAsync();
+            //var produtos = await _uof.ProdutoRepository.Get().ToListAsync();
+            var produtos = _uof.ProdutoRepository.GetProdutos(produtosParameters).ToList();
             var produtosDTO = _mapper.Map<List<ProdutoDTO>>(produtos);
 
             return produtosDTO;

@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.PeerToPeer;
 using System.Threading.Tasks;
 using WebAPI_Catalogo.Context;
 using WebAPI_Catalogo.Models;
+using WebAPI_Catalogo.Pagination;
 
 namespace WebAPI_Catalogo.Repository
 {
@@ -11,6 +13,15 @@ namespace WebAPI_Catalogo.Repository
     {
         public ProdutoRepository(AppDbContext context) : base(context)
         {
+        }
+
+        public IEnumerable<Produto> GetProdutos(ProdutosParameters produtosParameters)
+        {
+            return Get()
+                .OrderBy(on => on.Nome)
+                .Skip((produtosParameters.PageNumber - 1) * produtosParameters.PageSize)
+                .Take(produtosParameters.PageSize)
+                .ToList();
         }
 
         public async Task<IEnumerable<Produto>> GetProdutosPorPreco()
