@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +29,20 @@ namespace WebAPI_Catalogo.Controllers
         public ActionResult<IEnumerable<ProdutoDTO>> Get([FromQuery] ProdutosParameters produtosParameters) //?pageNumber=Value&pageSize=Value
         {
             //var produtos = await _uof.ProdutoRepository.Get().ToListAsync();
-            var produtos = _uof.ProdutoRepository.GetProdutos(produtosParameters).ToList();
+            var produtos = _uof.ProdutoRepository.GetProdutos(produtosParameters);
+
+            var metadata = new
+            {
+                produtos.TotalCount,
+                produtos.PageSize,
+                produtos.CurrentPage,
+                produtos.TotalPages,
+                produtos.HasNext,
+                produtos.HasPrevius
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
             var produtosDTO = _mapper.Map<List<ProdutoDTO>>(produtos);
 
             return produtosDTO;
