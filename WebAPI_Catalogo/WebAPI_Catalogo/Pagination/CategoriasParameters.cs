@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI_Catalogo.Pagination
 {
-    public class ProdutosParameters : QueryStringParameters
+    public class CategoriasParameters : QueryStringParameters
     {
     }
 }

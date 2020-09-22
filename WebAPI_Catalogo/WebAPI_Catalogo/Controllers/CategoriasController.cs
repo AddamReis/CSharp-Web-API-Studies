@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAPI_Catalogo.DTOs;
 using WebAPI_Catalogo.Models;
+using WebAPI_Catalogo.Pagination;
 using WebAPI_Catalogo.Repository;
 
 namespace WebAPI_Catalogo.Controllers
@@ -23,10 +25,25 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoriaDTO>>> Get()
+        //public async Task<ActionResult<IEnumerable<CategoriaDTO>>> Get()
+        public ActionResult<IEnumerable<CategoriaDTO>> Get([FromQuery] CategoriasParameters categoriasParameters)
         {
-            var categoria = await _uof.CategoriaRepository.Get().ToListAsync();
-            var categoriaDTO = _mapper.Map<List<CategoriaDTO>>(categoria);
+            //var categoria = await _uof.CategoriaRepository.Get().ToListAsync();
+            var categorias = _uof.CategoriaRepository.GetCategorias(categoriasParameters);
+
+            var metadata = new
+            {
+                categorias.TotalCount,
+                categorias.PageSize,
+                categorias.CurrentPage,
+                categorias.TotalPages,
+                categorias.HasNext,
+                categorias.HasPrevius
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
+            var categoriaDTO = _mapper.Map<List<CategoriaDTO>>(categorias);
 
             return categoriaDTO;
         }
