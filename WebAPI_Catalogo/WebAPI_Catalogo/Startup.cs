@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -7,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using WebAPI_Catalogo.Context;
 using WebAPI_Catalogo.DTOs.Mappings;
 using WebAPI_Catalogo.Extensions;
@@ -42,6 +45,21 @@ namespace WebAPI_Catalogo
             options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+            services.AddAuthentication(
+                JwtBearerDefaults.AuthenticationScheme).
+                AddJwtBearer(options =>
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidAudience = Configuration["TokenConfiguration:Audience"],
+                    ValidIssuer = Configuration["TokenConfiguration:Issuer"],
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(Configuration["Jwt:key"]))
+                });
 
             services.AddTransient<IMeuServico, MeuServico>(); //AddTransient é criado toda vez que for solicitado, AddScoped é criado uma única vez
 

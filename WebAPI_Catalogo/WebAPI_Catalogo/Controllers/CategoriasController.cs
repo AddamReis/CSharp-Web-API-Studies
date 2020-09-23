@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -12,6 +13,7 @@ using WebAPI_Catalogo.Repository;
 
 namespace WebAPI_Catalogo.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[Controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
