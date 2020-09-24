@@ -18,6 +18,7 @@ using WebAPI_Catalogo.Filters;
 using WebAPI_Catalogo.Logging;
 using WebAPI_Catalogo.Repository;
 using WebAPI_Catalogo.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI_Catalogo
 {
@@ -68,6 +69,13 @@ namespace WebAPI_Catalogo
                     IssuerSigningKey = new SymmetricSecurityKey(
                         Encoding.UTF8.GetBytes(Configuration["Jwt:key"]))
                 });
+
+            services.AddApiVersioning(opt =>
+            {
+                opt.AssumeDefaultVersionWhenUnspecified = true;
+                opt.DefaultApiVersion = new ApiVersion(1, 0);
+                opt.ReportApiVersions = true;
+            });
 
             services.AddTransient<IMeuServico, MeuServico>(); //AddTransient é criado toda vez que for solicitado, AddScoped é criado uma única vez
 
