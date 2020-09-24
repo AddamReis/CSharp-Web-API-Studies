@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -14,6 +15,7 @@ namespace WebAPI_Catalogo.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [EnableCors("PermitirApiRequest")]
     public class ProdutosController : ControllerBase
     {
         private readonly IUnitOfWork _uof;
