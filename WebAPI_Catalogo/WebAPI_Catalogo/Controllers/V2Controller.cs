@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAPI_Catalogo.Controllers
 {
     [ApiVersion("2")]
-    [Route("api/version")] //version? api-version=2
+    [Route("api/v{v:apiVersion}/version")] //v2/version
     [ApiController]
     public class V2Controller : ControllerBase
     {
