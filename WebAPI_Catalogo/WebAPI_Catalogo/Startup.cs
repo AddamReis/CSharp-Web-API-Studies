@@ -19,6 +19,7 @@ using WebAPI_Catalogo.Logging;
 using WebAPI_Catalogo.Repository;
 using WebAPI_Catalogo.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 namespace WebAPI_Catalogo
 {
@@ -75,6 +76,7 @@ namespace WebAPI_Catalogo
                 opt.AssumeDefaultVersionWhenUnspecified = true;
                 opt.DefaultApiVersion = new ApiVersion(1, 0);
                 opt.ReportApiVersions = true;
+                opt.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
             });
 
             services.AddTransient<IMeuServico, MeuServico>(); //AddTransient é criado toda vez que for solicitado, AddScoped é criado uma única vez
