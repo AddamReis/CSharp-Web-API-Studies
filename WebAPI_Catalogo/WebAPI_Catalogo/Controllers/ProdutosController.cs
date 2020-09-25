@@ -13,6 +13,7 @@ using WebAPI_Catalogo.Repository;
 
 namespace WebAPI_Catalogo.Controllers
 {
+    [ApiConventionType(typeof(DefaultApiConventions))] //incluído convenção a nível controlador (forma mais prática)
     [Produces("application/json")] //define um único tipo de requisição no swagger para o GET
     [Route("api/[Controller]")]
     [ApiController]

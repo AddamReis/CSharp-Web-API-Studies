@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -28,6 +29,8 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpGet]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+            nameof(DefaultApiConventions.Get))] //melhor utilização de convenções de retornos da API para cada método
         //public async Task<ActionResult<IEnumerable<CategoriaDTO>>> Get()
         public ActionResult<IEnumerable<CategoriaDTO>> Get([FromQuery] CategoriasParameters categoriasParameters)
         {
@@ -56,6 +59,8 @@ namespace WebAPI_Catalogo.Controllers
         /// <param name="id"> Código da Categoria</param>
         /// <returns>Objetos Categorias</returns>
         [HttpGet("{id}", Name = "ObterCategoria")]
+        [ProducesResponseType(typeof(CategoriaDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<CategoriaDTO>> Get(int id)
         {
             var categoria = await _uof.CategoriaRepository.GetById(p => p.CategoriaId == id);
@@ -91,6 +96,8 @@ namespace WebAPI_Catalogo.Controllers
         /// <returns>O objeto Categoria incluída</returns>
         /// <remarks>Retorna um objeto Categoria incluído</remarks>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)] //não é a melhor forma de utilizar
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Post([FromBody] CategoriaDTO categoriaDTO)
         {
             var categoria = _mapper.Map<Categoria>(categoriaDTO);
@@ -105,6 +112,8 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpPut("{id}")]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+            nameof(DefaultApiConventions.Put))]
         public async Task<ActionResult> Put(int id, [FromBody] CategoriaDTO categoriaDTO)
         {
             if (id != categoriaDTO.CategoriaId)
@@ -118,6 +127,8 @@ namespace WebAPI_Catalogo.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+            nameof(DefaultApiConventions.Delete))]
         public async Task<ActionResult<CategoriaDTO>> Delete(int id)
         {
             var categoria = await _uof.CategoriaRepository.GetById(p => p.CategoriaId == id);

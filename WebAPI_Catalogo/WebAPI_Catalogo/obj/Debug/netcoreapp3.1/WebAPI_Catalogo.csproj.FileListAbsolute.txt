@@ -133,7 +133,7 @@ C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Micr
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.xml
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csproj.CoreCompileInputs.cache
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.MvcApplicationPartsAssemblyInfo.cs
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.MvcApplicationPartsAssemblyInfo.cache
-C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebAPI_Catalogo.xml
