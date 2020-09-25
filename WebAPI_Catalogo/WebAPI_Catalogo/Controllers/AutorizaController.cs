@@ -16,6 +16,7 @@ using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredCla
 
 namespace WebAPI_Catalogo.Controllers
 {
+    [Produces("application/json")] //define um único tipo de requisição no swagger para o GET
     [Route("api/[controller]")]
     [ApiController]
     public class AutorizaController : ControllerBase

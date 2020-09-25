@@ -13,6 +13,7 @@ using WebAPI_Catalogo.Repository;
 
 namespace WebAPI_Catalogo.Controllers
 {
+    [Produces("application/json")] //define um único tipo de requisição no swagger para o GET
     [Route("api/[Controller]")]
     [ApiController]
     [EnableCors("PermitirApiRequest")]
