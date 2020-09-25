@@ -37,6 +37,11 @@ namespace WebAPI_Catalogo.Controllers
             return "AutorizaController :: Acessado em : " + DateTime.Now.ToLongDateString();
         }
 
+        /// <summary>
+        /// Registra um novo usuário
+        /// </summary>
+        /// <param name="model">Um objeto usuarioDTO</param>
+        /// <returns>Status 200 e o token para o cliente</returns>
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] UsuarioDTO model) //recebe no corpo as informações do usuário
         {
@@ -56,6 +61,12 @@ namespace WebAPI_Catalogo.Controllers
             return Ok(GeraToken(model));
         }
 
+        /// <summary>
+        /// Verifica as credenciais de um usuário
+        /// </summary>
+        /// <param name="userInfo">Um objeto do tipo usuarioDTO</param>
+        /// <returns>Status 200 e o token para o cliente</returns>
+        /// <remarks>Retorna status 200 e o token</remarks>
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody] UsuarioDTO userInfo)
         {

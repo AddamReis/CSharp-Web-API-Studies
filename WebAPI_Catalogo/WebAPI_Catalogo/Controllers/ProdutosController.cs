@@ -26,30 +26,39 @@ namespace WebAPI_Catalogo.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Exibe uma relalação de produtos
+        /// </summary>
+        /// <returns>Retorna uma lista de Objetos Produtos</returns>
         [HttpGet]
-        //public async Task<ActionResult<IEnumerable<ProdutoDTO>>> Get()
-        public ActionResult<IEnumerable<ProdutoDTO>> Get([FromQuery] ProdutosParameters produtosParameters) //?pageNumber=Value&pageSize=Value
+        public async Task<ActionResult<IEnumerable<ProdutoDTO>>> Get()
+        //public ActionResult<IEnumerable<ProdutoDTO>> Get([FromQuery] ProdutosParameters produtosParameters) //?pageNumber=Value&pageSize=Value
         {
-            //var produtos = await _uof.ProdutoRepository.Get().ToListAsync();
-            var produtos = _uof.ProdutoRepository.GetProdutos(produtosParameters);
+            var produtos = await _uof.ProdutoRepository.Get().ToListAsync();
+            //var produtos = _uof.ProdutoRepository.GetProdutos(produtosParameters);
 
-            var metadata = new
-            {
-                produtos.TotalCount,
-                produtos.PageSize,
-                produtos.CurrentPage,
-                produtos.TotalPages,
-                produtos.HasNext,
-                produtos.HasPrevius
-            };
+            //var metadata = new
+            //{
+            //    produtos.TotalCount,
+            //    produtos.PageSize,
+            //    produtos.CurrentPage,
+            //    produtos.TotalPages,
+            //    produtos.HasNext,
+            //    produtos.HasPrevius
+            //};
 
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+            //Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
 
             var produtosDTO = _mapper.Map<List<ProdutoDTO>>(produtos);
 
             return produtosDTO;
         }
 
+        /// <summary>
+        /// Obtém um produto pelo seu identificador produtoId
+        /// </summary>
+        /// <param name="id">Código do Produto</param>
+        /// <returns>Um objeto Produto</returns>
         [HttpGet("{id}", Name = "ObterProduto")]
         public async Task<ActionResult<ProdutoDTO>> Get(int id)
         {

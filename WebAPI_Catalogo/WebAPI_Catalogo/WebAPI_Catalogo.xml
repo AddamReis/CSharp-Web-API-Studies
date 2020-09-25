@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI_Catalogo</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI_Catalogo.Controllers.AutorizaController.RegisterUser(WebAPI_Catalogo.DTOs.UsuarioDTO)">
+            <summary>
+            Registra um novo usuário
+            </summary>
+            <param name="model">Um objeto usuarioDTO</param>
+            <returns>Status 200 e o token para o cliente</returns>
+        </member>
+        <member name="M:WebAPI_Catalogo.Controllers.AutorizaController.Login(WebAPI_Catalogo.DTOs.UsuarioDTO)">
+            <summary>
+            Verifica as credenciais de um usuário
+            </summary>
+            <param name="userInfo">Um objeto do tipo usuarioDTO</param>
+            <returns>Status 200 e o token para o cliente</returns>
+            <remarks>Retorna status 200 e o token</remarks>
+        </member>
+        <member name="M:WebAPI_Catalogo.Controllers.CategoriasController.Get(System.Int32)">
+            <summary>
+            Obtem uma Categoria pelo seu Id
+            </summary>
+            <param name="id"> Código da Categoria</param>
+            <returns>Objetos Categorias</returns>
+        </member>
+        <member name="M:WebAPI_Catalogo.Controllers.CategoriasController.Post(WebAPI_Catalogo.DTOs.CategoriaDTO)">
+            <summary>
+            Inclui uma nova Categoria
+            </summary>
+            <remarks>
+            Exemplo de request: 
+            
+                POST api/categorias
+                {
+                    "categoriaId": 1,
+                    "nome": "Categoria1",
+                    "imagemUrl": "http://teste.com/imagem1.jpg"
+                }
+            </remarks>
+            <param name="categoriaDTO"> Objeto Categoria</param>
+            <returns>O objeto Categoria incluída</returns>
+            <remarks>Retorna um objeto Categoria incluído</remarks>
+        </member>
+        <member name="M:WebAPI_Catalogo.Controllers.ProdutosController.Get">
+            <summary>
+            Exibe uma relalação de produtos
+            </summary>
+            <returns>Retorna uma lista de Objetos Produtos</returns>
+        </member>
+        <member name="M:WebAPI_Catalogo.Controllers.ProdutosController.Get(System.Int32)">
+            <summary>
+            Obtém um produto pelo seu identificador produtoId
+            </summary>
+            <param name="id">Código do Produto</param>
+            <returns>Um objeto Produto</returns>
+        </member>
+    </members>
+</doc>

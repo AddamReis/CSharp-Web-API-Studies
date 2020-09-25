@@ -20,6 +20,10 @@ using WebAPI_Catalogo.Repository;
 using WebAPI_Catalogo.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using System;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace WebAPI_Catalogo
 {
@@ -71,6 +75,34 @@ namespace WebAPI_Catalogo
                         Encoding.UTF8.GetBytes(Configuration["Jwt:key"]))
                 });
 
+            //Swagger
+            services.AddSwaggerGen(c =>
+           {
+               c.SwaggerDoc("v1", new OpenApiInfo
+               {
+                   Version = "v1",
+                   Title = "Web Api Catalogo",
+                   Description = "Catálogo de produtos e categorias",
+                   TermsOfService = new Uri("https://addamreis.net/terms"),
+                   Contact = new OpenApiContact
+                   {
+                       Name = "Addam",
+                       Email = "addam@gmail.com",
+                       Url = new Uri("https://addamreis.net/terms"),
+                   },
+                   License = new OpenApiLicense
+                   {
+                       Name = "Usar sobre LICX",
+                       Url = new Uri("https://addamreis.net/license")
+                   }
+               });
+
+               //configurações para exibir os <summary's> das api's no Swagger
+               var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+               var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+               c.IncludeXmlComments(xmlPath);
+           });
+
             services.AddApiVersioning(opt =>
             {
                 opt.AssumeDefaultVersionWhenUnspecified = true;
@@ -110,6 +142,15 @@ namespace WebAPI_Catalogo
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            //Swagger
+            app.UseSwagger();
+
+            //SwaggerUI
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catálogo de Produtos e Categorias"); //definindo endpoint do swagger
+            });
 
             app.UseCors();
 

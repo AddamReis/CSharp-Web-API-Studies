@@ -13,7 +13,7 @@ using WebAPI_Catalogo.Repository;
 
 namespace WebAPI_Catalogo.Controllers
 {
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    //[Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[Controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
@@ -49,7 +49,11 @@ namespace WebAPI_Catalogo.Controllers
 
             return categoriaDTO;
         }
-
+        /// <summary>
+        /// Obtem uma Categoria pelo seu Id
+        /// </summary>
+        /// <param name="id"> Código da Categoria</param>
+        /// <returns>Objetos Categorias</returns>
         [HttpGet("{id}", Name = "ObterCategoria")]
         public async Task<ActionResult<CategoriaDTO>> Get(int id)
         {
@@ -69,7 +73,22 @@ namespace WebAPI_Catalogo.Controllers
 
             return categoriaDTO;
         }
-
+        /// <summary>
+        /// Inclui uma nova Categoria
+        /// </summary>
+        /// <remarks>
+        /// Exemplo de request: 
+        /// 
+        ///     POST api/categorias
+        ///     {
+        ///         "categoriaId": 1,
+        ///         "nome": "Categoria1",
+        ///         "imagemUrl": "http://teste.com/imagem1.jpg"
+        ///     }
+        /// </remarks>
+        /// <param name="categoriaDTO"> Objeto Categoria</param>
+        /// <returns>O objeto Categoria incluída</returns>
+        /// <remarks>Retorna um objeto Categoria incluído</remarks>
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CategoriaDTO categoriaDTO)
         {
