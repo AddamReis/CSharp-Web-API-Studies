@@ -24,6 +24,7 @@ using System;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using System.Collections.Generic;
 
 namespace WebAPI_Catalogo
 {
@@ -101,6 +102,41 @@ namespace WebAPI_Catalogo
                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                c.IncludeXmlComments(xmlPath);
+
+               //configurações para debug utilizando swagger
+               var security = new Dictionary<string, IEnumerable<string>>
+               {
+                   {"Bearer", new string[] { }},
+               };
+
+               c.AddSecurityDefinition(
+                   "Bearer",
+                   new OpenApiSecurityScheme
+                   {
+                       In = ParameterLocation.Header,
+                       Description = @"Copiar 'bearer' + token'",
+                       Name = "Authorization",
+                       Type = SecuritySchemeType.ApiKey,
+                       Scheme = "Bearer"
+                   });
+
+               c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                  {
+                      {
+                          new OpenApiSecurityScheme
+                              {
+                                Reference = new OpenApiReference
+                                    {
+                                        Type = ReferenceType.SecurityScheme,
+                                        Id = "Bearer"
+                                     },
+                                Scheme = "oauth2",
+                                Name = "Bearer",
+                                In = ParameterLocation.Header,
+                                },
+                          new List<string>()
+                      }
+                  });
            });
 
             services.AddApiVersioning(opt =>

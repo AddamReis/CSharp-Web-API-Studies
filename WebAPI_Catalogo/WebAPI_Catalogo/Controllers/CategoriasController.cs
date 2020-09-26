@@ -15,7 +15,7 @@ using WebAPI_Catalogo.Repository;
 namespace WebAPI_Catalogo.Controllers
 {
     [Produces("application/json")] //define um único tipo de requisição no swagger para o GET
-    //[Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[Controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
