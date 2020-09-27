@@ -137,3 +137,4 @@ C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\bin\Debug\netcoreapp3.1\WebA
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csproj.CoreCompileInputs.cache
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.MvcApplicationPartsAssemblyInfo.cs
 C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\Web-API\WebAPI_Catalogo\WebAPI_Catalogo\obj\Debug\netcoreapp3.1\WebAPI_Catalogo.csprojAssemblyReference.cache
